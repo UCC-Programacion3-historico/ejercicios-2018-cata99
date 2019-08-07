@@ -1,8 +1,12 @@
 #ifndef REPASO_CIRCULO_H
 #define REPASO_CIRCULO_H
 
+#include "Geometria.h"
 
-class Circulo {
+class Circulo:public Geometria {
+protected:
+    float radio;
+public:
 
 };
 
