@@ -1,7 +1,9 @@
 #include <iostream>
 #include "potencia.h"
-
+using namespace std;
 int main() {
-    std::cout << "Ejercicio 01/01\n" << std::endl;
-    return 0;
+    cout<<"ingrese base y exponente"<<endl;
+    int base,exponente;
+    cin>>base>>exponente;
+    cout<<potencia(base,exponente);
 }
