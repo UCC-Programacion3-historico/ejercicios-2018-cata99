@@ -7,7 +7,7 @@
  * almacenar cualquier tipo de dato T
  * @tparam T cualquier tipo de dato
  */
-template class template<class T>
+template<class T>
 class Lista {
 private:
     nodo<T> *inicio;
@@ -63,7 +63,9 @@ Lista<T>::Lista(const Lista<T> &li) {}
  * @tparam T
  */
 template<class T>
-Lista<T>::~Lista() {}
+Lista<T>::~Lista() {
+    vaciar();
+}
 
 
 /**
@@ -115,14 +117,14 @@ void Lista<T>::insertar(unsigned int pos, T dato) {
     }
     while(posicion<pos-1 && aux != nullptr) // busca la posicion del nodo y que el aux no sea nulo seria llego a la ultima posicion
     {
-        aux=aux->getSiguiente()
+        aux=aux->getSiguiente();
         posicion++;
     }
     if (aux== nullptr) throw 404; //es una exepcion que el trycatch lee el error
 
 
     nuevo=new nodo<T>; //creo un nuevo nodo y le inicializo valor
-    nuevo.setDato(dato);
+    nuevo->setDato(dato);
     nuevo->setSiguiente(aux->getSiguiente());
     aux->setSiguiente(nuevo);
 
@@ -152,18 +154,18 @@ void Lista<T>::insertarUltimo(T dato) {
     {
         aux=aux->getSiguiente();
     }
+    if(aux== nullptr){
     nuevo=new nodo<T>; //creo un nuevo nodo y le inicializo valor
-    nuevo.setDato(dato);
+    nuevo->setDato(dato);
     nuevo->setSiguiente(aux->getSiguiente());
     aux->setSiguiente(nuevo);
-
-    if (pos==0){
+    }
         nuevo= new nodo<T>;
         nuevo->setDato(dato);
         nuevo->setSiguiente(inicio);
         inicio=nuevo;
         return;
-    }
+
 }
 
 
@@ -173,7 +175,29 @@ void Lista<T>::insertarUltimo(T dato) {
  * @param pos posicion del nodo a eliminar
  */
 template<class T>
-void Lista<T>::remover(int pos) {}
+void Lista<T>::remover(int pos) {
+    nodo<T> *aux=inicio, *aborrar;
+    int posActual =0;
+
+    while(aux!= nullptr && posActual<pos-1)
+        {
+            aux= aux->getSiguiente();
+            posActual++;
+        }
+    if (aux== nullptr) {
+        throw 404;
+    }
+    if (posActual==0){
+        inicio = inicio->getSiguiente();
+        delete aux;
+        return;
+    }
+    if (aux->getSiguiente()== nullptr) throw 404;
+    aborrar=aux->getSiguiente();
+    aux->setSiguiente(aborrar->getSiguiente());
+    delete aborrar;
+
+}
 
 
 /**
@@ -183,7 +207,20 @@ void Lista<T>::remover(int pos) {}
  * @return dato almacenado en el nodo
  */
 template<class T>
-T Lista<T>::getDato(int pos) {}
+T Lista<T>::getDato(int pos) {
+    nodo<T> *aux=inicio;
+    int posActual=0;
+
+    while (aux!= nullptr&& posActual< pos-1)
+    {
+        aux= aux->getSiguiente();
+        posActual++;
+    }
+    if (aux== nullptr){
+        throw 404;
+    }
+    return aux->getDato();
+}
 
 
 /**
@@ -193,7 +230,19 @@ T Lista<T>::getDato(int pos) {}
  * @param dato nuevo dato a almacenar
  */
 template<class T>
-void Lista<T>::reemplazar(int pos, T dato) {}
+void Lista<T>::reemplazar(int pos, T dato) {
+    int posicion=0;
+    nodo<T> *aux=inicio, *nuevo;
+    while(aux!= nullptr&& posicion <pos-1)
+    {
+        aux=aux->getSiguiente();
+        posicion++;
+    }
+    if (aux== nullptr) throw 404;
+
+    aux->setDato(dato);
+
+}
 
 
 /**
@@ -201,7 +250,16 @@ void Lista<T>::reemplazar(int pos, T dato) {}
  * @tparam T
  */
 template<class T>
-void Lista<T>::vaciar() {}
+void Lista<T>::vaciar() {
+    nodo<T> *aux=inicio, *aborrar;
+    while(aux!= nullptr)
+    {
+        aborrar=aux;
+        aux=aux->getSiguiente();
+        delete aborrar;
+    }
+    inicio= nullptr;
+}
 
 
 #endif //LISTA_H

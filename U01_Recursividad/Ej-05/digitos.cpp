@@ -4,10 +4,13 @@
 using namespace std;
 
 unsigned int cociente(unsigned int a, unsigned int b) {
-    int c=0;
+
     if(a<b)
         return 0;
-    els
+    else
+    {
+        return 1+cociente(a-b,b);
+    }
 
 }
 
