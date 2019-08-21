@@ -1,7 +1,9 @@
 #include <iostream>
 #include "digitos.h"
-
+using namespace std;
 int main() {
-    std::cout << "Ejercicio 01/05\n" << std::endl;
-    return 0;
+    int a,b;
+    cout<<"ingrese los numeros "<<endl;
+    cin>>a>>b;
+
 }
