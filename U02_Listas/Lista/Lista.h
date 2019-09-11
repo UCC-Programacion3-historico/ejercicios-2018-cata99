@@ -1,7 +1,8 @@
 #ifndef LISTA_H
 #define LISTA_H
 
-#include "nodo.h"
+//#include <d2d1helper.h>
+#include "nodo.h" /**incluye nodos porque voy a usar nodos*/
 /**
  * Clase que implementa una Lista Enlasada generica, ya que puede
  * almacenar cualquier tipo de dato T
@@ -35,7 +36,10 @@ public:
     void reemplazar(int pos, T dato);
 
     void vaciar();
+
+    void moverultimo(int pos);
 };
+
 
 
 /**
@@ -44,7 +48,7 @@ public:
  */
 template<class T>
 Lista<T>::Lista() {
-    inicio= nullptr;
+    inicio= nullptr; /**apunto a el coso vacio*/
 }
 
 
@@ -115,12 +119,13 @@ void Lista<T>::insertar(unsigned int pos, T dato) {
         inicio=nuevo;
         return;
     }
-    while(posicion<pos-1 && aux != nullptr) // busca la posicion del nodo y que el aux no sea nulo seria llego a la ultima posicion
+
+    while(posicion<pos-1 && aux != nullptr) /** busca la posicion del nodo y que el aux no sea nulo seria llego a la ultima posicion*/
     {
         aux=aux->getSiguiente();
         posicion++;
     }
-    if (aux== nullptr) throw 404; //es una exepcion que el trycatch lee el error
+    if (aux== nullptr) throw 404; /**es una exepcion que el trycatch lee el error*/
 
 
     nuevo=new nodo<T>; //creo un nuevo nodo y le inicializo valor
@@ -138,7 +143,7 @@ void Lista<T>::insertar(unsigned int pos, T dato) {
  */
 template<class T>
 void Lista<T>::insertarPrimero(T dato) {
-    insertar (0,dato); //sino puedo hacer el if de posicion cero aca
+    insertar (0,dato); /**sino puedo hacer el if de posicion cero aca*/
 }
 
 
@@ -148,14 +153,14 @@ void Lista<T>::insertarPrimero(T dato) {
  * @param dato dato a insertar
  */
 template<class T>
-void Lista<T>::insertarUltimo(T dato) {
+void Lista<T>::insertarUltimo(T dato) { /**hago esta funcion aca para mejorar rendimiento y no lo hago llamando a insertar con getTamanio */
     nodo<T> *aux= inicio,*nuevo;
     while(aux->getSiguiente()!= nullptr)
     {
         aux=aux->getSiguiente();
     }
     if(aux== nullptr){
-    nuevo=new nodo<T>; //creo un nuevo nodo y le inicializo valor
+    nuevo=new nodo<T>; /**creo un nuevo nodo y le inicializo valor*/
     nuevo->setDato(dato);
     nuevo->setSiguiente(aux->getSiguiente());
     aux->setSiguiente(nuevo);
@@ -261,5 +266,34 @@ void Lista<T>::vaciar() {
     inicio= nullptr;
 }
 
+template<class T>
+void Lista<T>::moverultimo( int pos)
+{
+    nodo<T> *aux= inicio, *amover;
+    int PosActual=0;
+    while (aux!= nullptr && PosActual < pos -1)
+    {
+        aux=aux->getSiguiente();
+        PosActual++;
+    }
+    if (aux != nullptr) throw 404;
+    if (pos==0){
+        amover=inicio;
+        inicio=inicio->getSiguiente();
+        aux=inicio;
+    }
+    else{
+        amover= aux->getSiguiente();
+        aux->getSiguiente(amover->getSiguiente());
+    }
+    amover= aux->getSiguiente();
+    aux->setSiguiente(amover->getSiguiente());
+    amover->setSiguiente(nullptr);
+    while(aux->getSiguiente() != nullptr)
+        aux=aux->getSiguiente();
+    aux->setSiguiente(amover); /** seteo al siguiente del aux que apuntaba al null ahora lo hago apuntar a amover*/
+
+
+}
 
 #endif //LISTA_H

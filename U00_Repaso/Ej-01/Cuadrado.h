@@ -4,8 +4,10 @@
 
 class Cuadrado:public Geometria{
 public:
-
-
+    Cuadrado::Cuadrado(float an, float al, float co) : Geometria(an, al, co) {};
+    float getDiagonal;
+    float getsuperficie();
+    float getperimetro();
 };
 
 

@@ -1,12 +1,12 @@
 #ifndef REPASO_GEOMETRIA_H
 #define REPASO_GEOMETRIA_H
-
+#include "Color.h"
 
 class Geometria {
 protected:
     float ancho;
     float alto;
-    float color;
+    Color c;
 public:
     Geometria(float an, float al, float co);
     virtual float getsuperficie() =0;

@@ -1,6 +1,7 @@
 #ifndef LISTA_H
 #define LISTA_H
 
+#include "nodo.h"
 /**
  * Clase que implementa una Pila generica, ya que puede
  * almacenar cualquier tipo de dato T
@@ -9,7 +10,7 @@
 template<class T>
 class Pila {
 private:
-
+    Nodo <T> *tope;
 public:
     Pila();
 
@@ -28,7 +29,9 @@ public:
  * @tparam T
  */
 template<class T>
-Pila<T>::Pila() {}
+Pila<T>::Pila() {
+    tope= nullptr;
+}
 
 
 /**
@@ -46,7 +49,12 @@ Pila<T>::~Pila() {}
  * @param dato  dato a insertar
  */
 template<class T>
-void Pila<T>::push(T dato) {}
+void Pila<T>::push(T dato) {
+    Nodo<T> *nuevo;
+    nuevo= new Nodo<T>;
+    nuevo->setsiguiente(tope);
+
+}
 
 
 /**

@@ -34,4 +34,4 @@ el entero a se divide por el entero b.
  dividido por el entero b.
 3. Utilice los módulos 1. y 2. para escribir una función recursiva que dado un entero no negativo lo imprima como una serie de dígitos separados por espacios.
  
- Ej: dado el entero 1024, debe escribir     "1 0 2 4 "
+ Ej: dado el entero 1024, debe escribir     "1 0 2 4 " (DIVIDIR POR 10)
