@@ -8,6 +8,7 @@
  * almacenar cualquier tipo de dato T
  * @tparam T cualquier tipo de dato
  */
+ using namespace std;
 template<class T>
 class Lista {
 private:
@@ -38,6 +39,10 @@ public:
     void vaciar();
 
     void moverultimo(int pos);
+
+    void moverpri(T dato);
+
+    void print();
 };
 
 
@@ -295,5 +300,41 @@ void Lista<T>::moverultimo( int pos)
 
 
 }
+
+template<class T>
+void Lista<T>::moverpri(T dato) {
+    nodo<T> *aux=inicio, *aBorrar;
+
+    if (aux== nullptr)
+        throw 404;
+    if (aux->getDato()==dato)
+        return;
+
+    while ((aux->getSiguiente()!= nullptr && aux->getSiguiente()->getDato() =! dato) )
+    {
+        aux= aux->getSiguiente();
+    }
+    if (aux== nullptr)
+    {
+        throw 404;
+    }
+    aBorrar=aux->getSiguiente();
+    aux->setSiguiente(aBorrar->getSiguiente());
+    aBorrar->setSiguiente(inicio);
+    inicio=aBorrar;
+
+}
+
+template<class T>
+void Lista<T>::print() {
+    nodo<T> *Aux=inicio;
+    while (Aux!= nullptr)
+    {
+        cout<<Aux->getDato()<< "->"<<endl;
+        Aux= Aux->getSiguiente();
+    }
+
+}
+
 
 #endif //LISTA_H

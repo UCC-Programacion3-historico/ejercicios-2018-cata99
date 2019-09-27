@@ -10,7 +10,7 @@
 template<class T>
 class Pila {
 private:
-    Nodo <T> *tope;
+    nodo <T> *tope;
 public:
     Pila();
 
@@ -19,6 +19,8 @@ public:
     void push(T dato);
 
     T pop();
+
+    T peek();
 
     bool esVacia();
 };
@@ -40,7 +42,29 @@ Pila<T>::Pila() {
  * @tparam T
  */
 template<class T>
-Pila<T>::~Pila() {}
+Pila<T>::~Pila() {
+    while (tope!= nullptr)
+        pop();
+}
+
+
+/**
+ * Obtener el dato de la pila
+ * @tparam T
+ * @return dato almacenado en el nodo
+ */
+/** el tope apunta al primero, hago que aborrar lo apunte y que tope apunte al siguiente de tope y borro aborrar*/
+template<class T>
+T Pila<T>::pop() {
+    nodo<T> *aborrar=tope; /**creo un puntero para saber que apunte a lo que quiero sacar*/
+    if (tope == nullptr) throw 404;
+    T dato= tope->getDato();
+    tope=tope->getSiguiente();
+    delete aborrar;
+    return dato;
+
+
+}
 
 
 /**
@@ -50,20 +74,12 @@ Pila<T>::~Pila() {}
  */
 template<class T>
 void Pila<T>::push(T dato) {
-    Nodo<T> *nuevo;
-    nuevo= new Nodo<T>;
-    nuevo->setsiguiente(tope);
-
+    nodo<T> *nuevo;
+    nuevo= new nodo<T>;
+    nuevo->setDato(dato);
+    nuevo->setSiguiente(tope);
+    tope = nuevo;
 }
-
-
-/**
- * Obtener el dato de la pila
- * @tparam T
- * @return dato almacenado en el nodo
- */
-template<class T>
-T Pila<T>::pop() {}
 
 /**
  * Responde si la pila se encuentra Vacía
@@ -72,7 +88,13 @@ T Pila<T>::pop() {}
  */
 template<class T>
 bool Pila<T>::esVacia() {
+    return tope== nullptr;
+}
 
+template<class T>
+T Pila<T>::peek() {
+    if(tope== nullptr) throw 404;
+    return tope->getDato();
 }
 
 #endif //LISTA_H

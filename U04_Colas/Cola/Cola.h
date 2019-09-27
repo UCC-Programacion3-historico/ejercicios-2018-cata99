@@ -1,6 +1,8 @@
 #ifndef COLA_H
 #define COLA_H
 
+#include "nodo.h"
+
 /**
  * Clase que implementa una Cola generica, ya que puede
  * almacenar cualquier tipo de dato T
@@ -28,7 +30,10 @@ public:
  * @tparam T
  */
 template<class T>
-Cola<T>::Cola() {}
+Cola<T>::Cola() {
+    frente= nullptr;
+    fondo = nullptr;
+}
 
 
 /**
