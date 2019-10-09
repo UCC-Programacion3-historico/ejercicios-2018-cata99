@@ -1,7 +1,11 @@
 #include <iostream>
 #include "../Lista/Lista.h"
 
+template <class T>
+void insertar( lista<T> *li, )
+
+
 int main() {
-    std::cout << "Ejercicio 01/02\n" << std::endl;
-    return 0;
+
+
 }

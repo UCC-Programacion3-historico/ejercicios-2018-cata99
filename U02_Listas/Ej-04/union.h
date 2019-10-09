@@ -5,7 +5,10 @@
 
 
 template<class T>
-Lista<T> *unir(Lista<T> &lisA, Lista<T> &lisB) {
+Lista<T> *unir(Lista<T> &lisA, Lista<T> &lisB)// no seria con un asterisco aca?
+
+{
+
     return new Lista<T>();
 }
 

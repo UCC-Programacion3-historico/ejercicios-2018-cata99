@@ -1,6 +1,7 @@
 #ifndef HASHMAP_H
 #define HASHMAP_H
 
+#include "HashEntry.h"
 template<class K, class T>
 class HashMap {
 private:
@@ -8,9 +9,14 @@ private:
 
     unsigned int (*hashFuncP)(K clave);
 
+    HashEntry<T,K> *tabla;
+
+    unsigned <K,T> tamanio;
+
 
 public:
     HashMap(unsigned int k);
+
 
     HashMap(unsigned int k, unsigned int (*hashFuncP)(K clave));
 
@@ -28,6 +34,7 @@ public:
 
 template<class K, class T>
 HashMap<K, T>::HashMap(unsigned int k) {
+    tabla= new HashEntry<T,K> [k];
 
 }
 

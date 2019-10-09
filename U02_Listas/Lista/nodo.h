@@ -1,32 +1,33 @@
 //
-// Created by Catalina on 21/08/2019.
+// Created by martin on 21/8/19.
 //
 
-#ifndef PROGRAMACION3_NODO_H
-#define PROGRAMACION3_NODO_H
+#ifndef NODO_H
+#define NODO_H
 
-template <class T>
-class nodo{
+template<class T>
+class Nodo {
 private:
     T dato;
-    nodo<T> *siguiente;
+    Nodo<T> *siguiente;
 public:
-
-    T getDato() const {
+    T getDato()  {
         return dato;
     }
 
-    void setDato(T dato) {
-        this->dato = dato;
+    void setDato(T d) {
+        dato = d;
     }
 
-    nodo<T> *getSiguiente() const {
+    Nodo<T> *getSiguiente()  {
         return siguiente;
     }
 
-    void setSiguiente(nodo<T> *siguiente) {
+    void setSiguiente(Nodo<T> *siguiente) {
         this->siguiente = siguiente;
     }
 
 };
+
+
 #endif //PROGRAMACION3_NODO_H

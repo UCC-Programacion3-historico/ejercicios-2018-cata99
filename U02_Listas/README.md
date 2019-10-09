@@ -10,6 +10,7 @@ lista original.
 Escribir un programa que permita agregar no enteros a una lista de números aceptada por
 teclado. El programa pregunta si debe agregar al principio, al final o en el medio y agrega el
 elemento a la lista. USAR LA LISTA
+TENGO QUE USAR LOS METODOS DE LA LISTA ? Usaria los metodos de la clase con if segun el lugar donde lo quiero poner
 
 
 ##    Ejercicio N°3. 

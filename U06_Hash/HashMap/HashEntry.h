@@ -1,10 +1,11 @@
 #ifndef HASHENTRY_H
 #define HASHENTRY_H
 
-template<class T, class K>
+template<class K, class T>
 class HashEntry {
 private:
-
+    T dato;
+    K clave;
 public:
 
 };
