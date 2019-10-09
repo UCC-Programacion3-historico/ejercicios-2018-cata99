@@ -1,7 +1,10 @@
 #include <iostream>
 #include "mcd.h"
+using namespace std;
 
 int main() {
-    std::cout << "Ejercicio 01/04\n" << std::endl;
-    return 0;
+    int a=0,b=0;
+   cout<<"ingrese los valores a y b"<<endl;
+   cin>>a>>b;
+   cout<<"mcd es: "<<mcd(a,b)<<endl;
 }

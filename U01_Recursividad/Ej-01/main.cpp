@@ -23,14 +23,6 @@ int asterisco(int num) {
     impares(n);
 }
 
-bool fn (int v[], int x, int pos)
-{
-    if (v[pos]==x)
-
-    else
-        fn (v[], pos-1)
-}
-
 int main() {
     int n;
     cout<<"ingrese base y exponente"<<endl;
