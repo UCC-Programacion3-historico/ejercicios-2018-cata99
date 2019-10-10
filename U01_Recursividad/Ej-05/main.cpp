@@ -6,4 +6,5 @@ int main() {
     cout<<"ingrese los numeros "<<endl;
     cin>>a>>b;
     cout<<"parte real de la division "<<cociente(a,b)<<endl;
+    cout<<"espaciado " <<escribir_espaciado(a);
 }

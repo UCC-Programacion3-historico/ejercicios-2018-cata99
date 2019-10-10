@@ -391,7 +391,7 @@ void Lista<T>:: eliminar(int pos)
     {
         inicio=aux->getSiguiente();
         delete *aux;
-        return
+        return;
     }
 
     if (aux->getSiguiente()== nullptr)

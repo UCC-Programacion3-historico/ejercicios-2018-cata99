@@ -24,10 +24,11 @@ unsigned int resto(unsigned int a, unsigned int b) {
 
 
 void escribir_espaciado(unsigned int num) {
-    if (0<num && num <10)
-    {cout<<"    "<<num<<endl;}
+    if (num <10)
+    {cout<<"    "<<num<<"   "<<endl;}
     else {
-
+    escribir_espaciado(cociente(num,10));
+    std::cout<<resto(num,10)<<" ";
     }
 
 }
