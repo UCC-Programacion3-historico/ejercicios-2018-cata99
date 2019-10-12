@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    Lista<int> A,B;
+    Lista<int> A,B,*C;
     int d;
     cout<<"introduzca lista a "<<endl;
     for (int i = 0; i <5 ; ++i)
@@ -20,6 +20,7 @@ int main()
         cin>>d;
         B.insertar(i,d);
     }
-    unir (A,B);
+    C= unir (A,B);
+    C->print();
 
 }

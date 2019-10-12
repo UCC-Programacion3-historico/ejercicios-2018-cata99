@@ -3,15 +3,25 @@
 
 
 using namespace std;
-int asterisco(int num) {
+
+void asterisco(int num) {
     { int i1=0;
         if (num==1)
-            return 1;
-        else
-            i1= 1 + asterisco(num - 1);
-        return i1;
+            cout<<"*";
+        else{
+          cout<<"*";
+          asterisco(num-1);
     }
 }
+   // void asterisco(int num) {
+   //{ int i1=0;
+     //       if (num==0)
+       //         return;
+         //   else{
+           //     cout<<"*";
+             //   asterisco(num-1);
+           // }
+        //}
  void impares(  int n)
 {
     if(n%2==0)

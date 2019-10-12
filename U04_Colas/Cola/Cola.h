@@ -25,6 +25,8 @@ public:
     bool esVacia();
 
     T peek();
+
+    bool iguales (Cola<T> C1);
 };
 
 
@@ -119,5 +121,25 @@ T Cola<T>::peek() {
 
     return frente->getDato();
 }
+
+template<class T>
+bool Cola<T>::iguales(Cola<T> C1) {
+        bool igual= true; Nodo<T> *aux1= frente,*aux2= C1.frente;
+        while (aux1!= nullptr && aux2!= nullptr&& igual)
+        {
+            if (aux1->getDato() != aux2->getDato())
+                igual = false;
+                aux1 = aux1->getSiguiente();
+                aux2 = aux2->getSiguiente();
+
+        }
+        if (aux1== nullptr&& aux2== nullptr&& igual)
+            return true;
+        else return false;
+
+
+    }
+
+
 
 #endif //LISTA_H

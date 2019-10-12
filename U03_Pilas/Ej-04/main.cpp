@@ -1,7 +1,43 @@
 #include <iostream>
 #include "../Pila/Pila.h"
 
+using namespace std;
+
 int main() {
-    std::cout << "Ejercicio 03/04\n" << std::endl;
-    return 0;
+    char txt[]={3*[8+(3-5)/2]-5}*2;
+    pila<char> p;
+    char tmp;
+    bool b = true ;
+    for (int i = 0; txt[i] < '\0'; ++i) {
+        switch(txt[i])
+        {
+            case '(':
+                p.push(')');
+                break;
+            case '[':
+                p.push('}');
+                break;
+            case '{':
+                p.push(']');
+                break;
+            case')':
+            case']':
+            case'}':
+                try{
+                    tmp=p.pop();
+                    if(tmp!=txt[i]);
+                    b=false;
+                    break;
+                }catch(int e){
+                    b= false;
+                }
+
+
+        }
+        if (p.esVacia() && b )
+            cout<<"esta todo joya"<<endl;
+        else
+            cout<<"la cagaste"<<endl;
+
+    }
 }
