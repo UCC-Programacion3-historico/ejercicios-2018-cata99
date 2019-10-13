@@ -5,7 +5,7 @@
 
 
 template<class T>
-Lista<T> *unir(Lista<T> &lisA, Lista<T> &lisB)//
+Lista<T> *unir(Lista<T> &lisA, Lista<T> &lisB)
 
 {
     auto C = new Lista<T>;

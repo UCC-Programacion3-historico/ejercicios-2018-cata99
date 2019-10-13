@@ -103,6 +103,14 @@ bool Pila<T>::esVacia() {
     return tope == nullptr;
 }
 
+/**
+ * inserte un nodo con el valor newValue después de la enésima ocurrencia de oldValue.
+ * @tparam OldValue
+ * @tparam int n
+ * @tparam newvalue
+ * @return
+ */
+
 template<class T>
 void Pila<T>::instertAfter2(T oldvalue, int n, T newvalue) {
     Nodo<T> *aux=tope;

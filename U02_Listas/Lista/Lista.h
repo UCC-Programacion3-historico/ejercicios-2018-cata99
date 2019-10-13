@@ -368,8 +368,51 @@ void Lista<T>::print() {
 }
 
 /**
- * Función que inserta elementos en una posicion determinada de la lista
+ * Función que agrega datos a la lista con ubicacion referida por el usuario, ingresa por teclado 0 para insertar al principio, 1 para insertar al medio y 2 para insertar al ultimo
  * ejercicio dos
+ * @tparam dato
+ * @tparam ubicacion
+ */
+template<class T>
+void Lista<T>::agregar(int dato, int ubicacion) {
+    Nodo<T> *aux=inicio, *nuevo;int posactual=0;
+
+    if (ubicacion==0) //caso de insertar en la posicion cero
+    {
+        nuevo= new Nodo<T>;
+        nuevo->setSiguiente(inicio);
+        nuevo->setDato(dato);
+        inicio= nuevo;
+        return;
+    }
+    if (ubicacion==1) // caso en el que pide una ubicacion en el medio
+    {
+        while (aux->getSiguiente()!= nullptr&& posactual<(getTamanio()/2)-1)
+        {
+            aux=aux->getSiguiente();
+            posactual++;
+        }
+        nuevo= new Nodo<T>;
+        nuevo->setSiguiente(aux->getSiguiente());
+        nuevo->setDato(dato);
+        aux->setSiguiente(nuevo);
+    }
+    if (ubicacion==2)
+    {
+        while (aux->getSiguiente()!= nullptr)
+        {
+            aux=aux->getSiguiente();
+        }
+        nuevo= new Nodo<T>;
+        nuevo->setDato(dato);
+        nuevo->setSiguiente(nullptr);
+        aux->setSiguiente(nuevo);
+
+    }
+}
+/**
+ * Función que elimina elementos en una posicion determinada de la lista
+ * ejercicio tres
  * @tparam dato
  * @tparam ubicacion
  */
