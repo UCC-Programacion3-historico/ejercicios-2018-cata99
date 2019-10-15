@@ -32,11 +32,10 @@ int main() {
         C1.encolar(cola[i]);
         P1.push(cola[i]);
     }
- //   if (cola.length() == pila.length()) {
+
         if (paliedro(P1, C1))
             cout << "son paliedros" << endl;
         else
             cout << "no son paliedros" << endl;
-   // }
-    //else cout<<"no son paliedros "<<endl;
+
 }

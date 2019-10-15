@@ -3,12 +3,15 @@
 
 using namespace std;
 
-int main() {
-    char txt[]={3*[8+(3-5)/2]-5}*2;
-    pila<char> p;
+int main()
+{
+    char txt[100];
+    cin>>txt;
+    Pila<char> p;
     char tmp;
     bool b = true ;
-    for (int i = 0; txt[i] < '\0'; ++i) {
+    for (int i = 0; txt[i] < '\0'; ++i)
+    {
         switch(txt[i])
         {
             case '(':
@@ -23,17 +26,20 @@ int main() {
             case')':
             case']':
             case'}':
-                try{
+                try
+                {
                     tmp=p.pop();
                     if(tmp!=txt[i]);
                     b=false;
                     break;
-                }catch(int e){
+                }catch(int e)
+                {
                     b= false;
                 }
 
 
         }
+
         if (p.esVacia() && b )
             cout<<"esta todo joya"<<endl;
         else

@@ -1,18 +1,28 @@
 #include <iostream>
 #include "../Pila/Pila.h"
+#include <string>
 using namespace std;
 int main() {
-    char arr[100];
-    Pila<char> p;
-    cout << "Introduzca una palabra" << endl;
-    cin >> arr;
-    for (int i=0;arr[i]!='\0';i++)
-    {
-        p.push(arr[i]);
+    char s[12]="hola mundo";
+    char d,h;
+    Pila<char> P1;
+    Pila<char> aux;
+    for (int i = 0; s[i]!='\0' ; ++i) {
+        P1.push(s[i]);
+
     }
-    while (!p.esVacia())
+    while (!P1.esVacia())
     {
-        cout << p.pop();
+        if(P1.pop()==' ')
+            while(!aux.esVacia())
+            {
+                h=aux.pop();
+                cout<<h;
+            }
+        else
+        {
+         d=P1.pop();
+         aux.push(d);
+        }
     }
-    return 0;
 }

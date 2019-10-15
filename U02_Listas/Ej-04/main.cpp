@@ -10,7 +10,7 @@ int main()
     Lista<int> A,B,*C;
     int d;
     cout<<"introduzca lista a "<<endl;
-    for (int i = 0; i <5 ; ++i)
+    for (int i = 0; i <7 ; ++i)
     {
         cin>>d;
         A.insertar(i,d);
@@ -18,9 +18,8 @@ int main()
     for (int i = 0; i <5 ; ++i)
     {
         cin>>d;
-        B.insertar(i,d);
+    B.insertar(i,d);
     }
     C= unir (A,B);
     C->print();
-
 }

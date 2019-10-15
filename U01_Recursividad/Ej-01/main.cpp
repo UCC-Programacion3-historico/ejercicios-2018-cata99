@@ -12,16 +12,20 @@ void asterisco(int num) {
           cout<<"*";
           asterisco(num-1);
     }
+}}
+
+
+int vocales(string cd[])
+{ int contador=0;
+    if (cd== nullptr)
+        return 0;
+    else if( == 'a' || *cd == 'e' || *cd == 'o' || *cd == 'i' || *cd == 'u')
+        contador=1+vocales(++cd);
+    else contador=0+vocales(++cd);
+
+    return contador;
 }
-   // void asterisco(int num) {
-   //{ int i1=0;
-     //       if (num==0)
-       //         return;
-         //   else{
-           //     cout<<"*";
-             //   asterisco(num-1);
-           // }
-        //}
+
  void impares(  int n)
 {
     if(n%2==0)
@@ -34,11 +38,14 @@ void asterisco(int num) {
 }
 
 int main() {
-    int n;
+    //int n;
+    string s;
     cout<<"ingrese base y exponente"<<endl;
     int base,exponente;
     cin>>base>>exponente;
     cout<<potencia(base,exponente);
-
+    cout<<"ingrese cadena"<<endl;
+    cin>>s;
+    cout<<"cantidad de vocales" <<vocales(s);
 }
 

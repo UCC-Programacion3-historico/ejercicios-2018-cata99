@@ -1,10 +1,8 @@
-//
-// Created by Catalina on 07/10/2019.
-//
+
 #include <iostream>
 #include "LISTAYPILA.h"
 #include "lista.h"
-#include " pila.h"
+#include "../Ej-01/Pila.h"
 
 
 using namespace std;
