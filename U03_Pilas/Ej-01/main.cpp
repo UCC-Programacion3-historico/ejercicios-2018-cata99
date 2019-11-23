@@ -3,7 +3,9 @@
 #include <string>
 using namespace std;
 int main() {
-    char s[12]="hola mundo";
+    char s[100];
+    std::cout << "Ingrese frase: ";
+    std::cin.getline(s, 50);
     char d,h;
     Pila<char> P1;
     Pila<char> aux;
@@ -13,16 +15,22 @@ int main() {
     }
     while (!P1.esVacia())
     {
-        if(P1.pop()==' ')
-            while(!aux.esVacia())
+        while(P1.peek()!=' ')
+        { d=P1.pop();
+        aux.push(d);}
+        while(!aux.esVacia())
             {
                 h=aux.pop();
                 cout<<h;
             }
-        else
-        {
-         d=P1.pop();
-         aux.push(d);
+        if (aux.esVacia()) cout<<P1.pop();
         }
-    }
+
+    if(!aux.esVacia())
+{
+    while(!aux.esVacia())
+{
+h=aux.pop();
+cout<<h;
 }
+}  }

@@ -4,27 +4,14 @@
 
 using namespace std;
 
-void asterisco(int num) {
-    { int i1=0;
-        if (num==1)
-            cout<<"*";
-        else{
-          cout<<"*";
-          asterisco(num-1);
+void binario(unsigned int n)
+{
+    if (n!=0) {
+        binario(n / 2);
+        cout << n % 2;
     }
-}}
-
-
-int vocales(string cd[])
-{ int contador=0;
-    if (cd== nullptr)
-        return 0;
-    else if( == 'a' || *cd == 'e' || *cd == 'o' || *cd == 'i' || *cd == 'u')
-        contador=1+vocales(++cd);
-    else contador=0+vocales(++cd);
-
-    return contador;
-}
+    else return;
+    }
 
  void impares(  int n)
 {
@@ -38,14 +25,12 @@ int vocales(string cd[])
 }
 
 int main() {
-    //int n;
-    string s;
+    int n;
+    string s[]='hola mundo';
     cout<<"ingrese base y exponente"<<endl;
     int base,exponente;
     cin>>base>>exponente;
     cout<<potencia(base,exponente);
-    cout<<"ingrese cadena"<<endl;
-    cin>>s;
-    cout<<"cantidad de vocales" <<vocales(s);
+    cout<<reemplazar(s[],12);
 }
 
