@@ -41,9 +41,9 @@ int main()
         }
 
         if (p.esVacia() && b )
-            cout<<"esta todo joya"<<endl;
+            cout<<" bien "<<endl;
         else
-            cout<<"la cagaste"<<endl;
+            cout<<" mal "<<endl;
 
     }
 }
