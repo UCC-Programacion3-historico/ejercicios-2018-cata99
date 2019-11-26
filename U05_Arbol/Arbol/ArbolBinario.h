@@ -2,7 +2,7 @@
 #define ARBOLBINARIO_H
 
 #include <iostream>
-#include "NodoArbol.h"
+#include "../../U07_Grafos/grafos/NodoArbol.h"
 
 template<class T>
 class ArbolBinario {
